@@ -1,0 +1,111 @@
+:root{--bg:#f3f6fb;--ink:#14213d;--mute:#5b6784;--line:#d5dcea;--card:#fff;--blue:#2f5bff;--mark:#ffd84d;--ok:#1f9d6b;--bad:#d64545}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1424;--ink:#e8edf9;--mute:#97a3c2;--line:#2a3550;--card:#161e33;--blue:#6f8dff;--mark:#c9a41c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Bricolage Grotesque',system-ui,sans-serif}
+.top{display:flex;align-items:center;gap:20px;padding:12px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap;position:sticky;top:0;background:var(--bg);z-index:5}
+.logo{font-weight:800;font-size:24px;letter-spacing:-.5px;background:linear-gradient(transparent 60%,var(--mark) 60%);padding:0 4px}
+nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+nav button{background:none;border:0;padding:8px 14px;border-radius:8px;font:inherit;color:var(--mute);cursor:pointer}
+nav button.on{color:var(--ink);background:var(--card);box-shadow:inset 0 -3px 0 var(--blue)}
+.stats{display:flex;gap:10px;font-weight:700;font-size:14px}
+.stats span{background:var(--card);border:1px solid var(--line);padding:4px 10px;border-radius:99px}
+main{max-width:1000px;margin:0 auto;padding:28px 20px 80px}
+.pane{display:none}.pane.on{display:block}
+h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:20px 0 12px;letter-spacing:-1.5px}
+h2{font-size:28px;margin:0 0 16px}
+.hero p{max-width:55ch;color:var(--mute);font-size:18px}
+.goal{display:flex;gap:16px;align-items:center;margin:20px 0 36px;flex-wrap:wrap}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.btn{font:inherit;font-weight:700;background:var(--blue);color:#fff;border:0;border-radius:8px;padding:10px 18px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+.btn:disabled{opacity:.5;cursor:wait}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tile{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;cursor:pointer;font:inherit;color:var(--ink)}
+.tile b{display:block;font-size:20px;margin-bottom:4px}.tile span{color:var(--mute);font-size:14px}
+.tile:hover{border-color:var(--blue)}
+.bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.bar input{flex:1;min-width:200px}
+.split{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.passage{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;font-family:Newsreader,Georgia,serif;font-size:18px;line-height:1.7;max-height:70vh;overflow:auto}
+.passage h3{font-family:'Bricolage Grotesque',sans-serif;margin-top:0}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
+.q p{margin:0 0 8px;font-weight:700}
+.q label{display:block;padding:6px 8px;border-radius:6px;cursor:pointer}
+.q label:hover{background:var(--bg)}
+.q.right{border-color:var(--ok)}.q.wrong{border-color:var(--bad)}
+.why{font-size:14px;color:var(--mute);margin-top:6px}
+.result{font-weight:800;font-size:20px;margin:10px 0}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:10px;height:380px;overflow:auto;padding:14px;margin-bottom:12px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:80%;padding:10px 14px;border-radius:12px;white-space:pre-wrap}
+.msg.ai{background:var(--bg);align-self:flex-start}
+.msg.me{background:var(--blue);color:#fff;align-self:flex-end}
+.hint{color:var(--mute);font-size:13px}
+.prompt{font-family:Newsreader,Georgia,serif;font-size:19px;background:var(--card);border-left:5px solid var(--mark);padding:14px 18px;border-radius:0 8px 8px 0}
+textarea{width:100%;min-height:260px;margin-bottom:12px;font-family:Newsreader,Georgia,serif;font-size:18px;line-height:1.6}
+.out{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-top:16px;display:none}
+.out.show{display:block}
+.loading{color:var(--mute);font-style:italic}
+.audio{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.flash{background:var(--card);border:1px solid var(--line);border-radius:12px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;margin-bottom:16px;cursor:pointer;font-size:20px}
+.flash b{font-size:36px;letter-spacing:-1px}
+.flash i{font-family:Newsreader,Georgia,serif}
+
+/* ===== v2: har bo'lim o'z ko'rinishida + telefon ===== */
+.pane.on{background:var(--tint,transparent);border-radius:16px;padding:20px;border:1px solid var(--line)}
+#home.on{background:none;border:0;padding:0}
+#reading{--tint:#fbf7ec;--acc:#b8860b}
+#listening{--tint:#e6f4f3;--acc:#0f8b8d}
+#speaking{--tint:#efe9fb;--acc:#7a4dd8}
+#writing{--tint:#fff1e6;--acc:#e0701b}
+#mentor{--tint:#fde9f0;--acc:#d6336c}
+#vocab{--tint:#eaf3e4;--acc:#3c8d2f}
+@media(prefers-color-scheme:dark){
+ #reading{--tint:#241f12}#listening{--tint:#0f2a2b}#speaking{--tint:#1d1736}#writing{--tint:#2b1b0e}#mentor{--tint:#2e1320}#vocab{--tint:#16260f}}
+.pane h2{border-left:6px solid var(--acc);padding-left:12px}
+.pane .btn{background:var(--acc)}.pane .btn.ghost{background:transparent;color:var(--acc);border-color:var(--acc)}
+.t-r{border-top:5px solid #b8860b}.t-l{border-top:5px solid #0f8b8d}.t-s{border-top:5px solid #7a4dd8}.t-w{border-top:5px solid #e0701b}
+/* Reading: qog'oz */
+#reading .passage{background:#fffdf6;color:#2b2415;position:sticky;top:76px}
+/* Listening: pleyer + bitta savol */
+#listening .audio{background:var(--acc);color:#fff;border:0;padding:28px;justify-content:center;text-align:center;flex-direction:column}
+#listening .audio .btn{background:#fff;color:var(--acc);font-size:20px;padding:16px 40px;border-radius:99px}
+#listening .audio .btn.ghost{background:transparent;color:#fff;border-color:#fff;font-size:14px;padding:8px 18px}
+#listening .audio .hint{color:#fff}
+.stepper{display:flex;gap:10px;align-items:center;margin:8px 0}
+/* Speaking: messenjer */
+#speaking .chat,#mentor .chat{height:55vh;border-radius:16px}
+#speaking .msg.me,#mentor .msg.me{background:var(--acc)}
+.s-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.s-head h2{margin:0;flex:1}
+.s-dock{display:flex;gap:8px;align-items:center}.s-dock input{flex:1;min-width:0}
+.orb{width:64px;height:64px;border-radius:50%;border:0;background:var(--acc);color:#fff;font:700 13px inherit;cursor:pointer;flex:none}
+.orb.live{animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 14px color-mix(in srgb,var(--acc) 30%,transparent)}}
+/* Writing: muharrir + yon panel */
+.w-grid{display:grid;grid-template-columns:1fr 220px;gap:18px;align-items:start}
+.w-side{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;position:sticky;top:76px;text-align:center}
+.w-side ul{text-align:left;padding-left:18px;color:var(--mute);font-size:14px}
+.clock{font-size:40px;font-weight:800;color:var(--acc);font-variant-numeric:tabular-nums}
+#writing textarea{min-height:340px;background:var(--card)}
+/* Telefon */
+@media(max-width:760px){
+ body{padding-bottom:72px}
+ main{padding:14px 10px}
+ .top{padding:8px 12px;gap:8px}
+ nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));flex-wrap:nowrap;overflow-x:auto;z-index:9}
+ nav button{padding:10px 12px;font-size:13px;white-space:nowrap}
+ .pane.on{padding:12px}
+ .w-grid{grid-template-columns:1fr}.w-side{position:static;order:-1;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}.w-side ul{display:none}
+ #reading .passage{position:static;max-height:none}
+ .bar input{min-width:100%}
+ .msg{max-width:92%}
+ .hero p{font-size:16px}
+}
+
+.attach{cursor:pointer;padding:10px 12px;flex:none}
+.typing{display:inline-flex;gap:5px;padding:14px 16px}
+.typing i{width:8px;height:8px;border-radius:50%;background:var(--mute);animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,80%,100%{opacity:.25}40%{opacity:1}}
