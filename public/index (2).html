@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Novix AI — bepul IELTS tayyorlov: Reading, Listening, Speaking, Writing</title>
+<meta name="description" content="Novix AI: bepul IELTS tayyorlov platformasi. AI ustoz bilan gaplashing, Reading, Listening, Speaking va Writing mashqlarini bajaring.">
+<meta name="theme-color" content="#060b1f">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home" data-go="home"><img src="logo-mark.png" alt="Novix"><span class="lt">NOVIX</span><span class="pill">AI</span></a>
+  <nav id="tabs">
+    <button data-tab="home" class="on">Bosh</button>
+    <button data-tab="reading">Reading</button>
+    <button data-tab="listening">Listening</button>
+    <button data-tab="speaking">Speaking</button>
+    <button data-tab="writing">Writing</button>
+    <button data-tab="mentor">Nova</button>
+    <button data-tab="vocab">Lug'at</button>
+    <button data-tab="stats">Natijam</button>
+  </nav>
+  <div class="stats"><span id="streak">0 kun</span><span id="xp">0 XP</span></div>
+</header>
+
+<main>
+<section id="home" class="pane on">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="chip">AI bilan IELTS tayyorlov · bepul</span>
+      <h1>IELTS 9 sari, har kuni 15 daqiqa.</h1>
+      <p>To'rt bo'lim, jonli AI ustoz va shaxsiy natijalar bitta joyda. Gaplashing, yozing, tinglang va o'sishingizni kuzating.</p>
+      <div class="goal"><button class="btn" data-go="mentor">Nova bilan gaplashish</button><button class="btn ghost" data-go="reading">Mashqni boshlash</button></div>
+      <small class="tag">Smarter. Faster. Together.</small>
+    </div>
+    <div class="hero-logo"><img src="logo-mark.png" alt="Novix AI"></div>
+  </div>
+
+  <h2 class="sec">Platforma</h2>
+  <div class="grid4">
+    <button class="tile t-m" data-go="mentor"><b>Nova, AI ustoz</b><span>O'zbekcha gaplashadi, his-tuyg'ulari yuzida ko'rinadi, ovozi bor</span></button>
+    <button class="tile t-r" data-go="reading"><b>Reading</b><span>Tayyor yoki AI yaratgan matnlar, javob izohlari</span></button>
+    <button class="tile t-l" data-go="listening"><b>Listening</b><span>Tinglang va savollarga birma-bir javob bering</span></button>
+    <button class="tile t-s" data-go="speaking"><b>Speaking</b><span>Mikrofon bilan examiner bilan suhbat va band baho</span></button>
+    <button class="tile t-w" data-go="writing"><b>Writing</b><span>Taymer bilan essey, 4 mezon bo'yicha tahlil</span></button>
+    <button class="tile t-v" data-go="vocab"><b>Lug'at</b><span>AI har mavzuda band 8-9 darajadagi so'zlar beradi</span></button>
+    <button class="tile t-n" data-go="stats"><b>Natijam</b><span>XP, ketma-ket kunlar, grafik va band tarixi</span></button>
+  </div>
+
+  <h2 class="sec">Qanday ishlaydi</h2>
+  <div class="steps">
+    <div><i>1</i><b>Mashqni tanlang</b><span>Reading, Listening, Speaking, Writing yoki lug'at.</span></div>
+    <div><i>2</i><b>AI bilan ishlang</b><span>Savollarga javob bering, Nova'dan tushuntirish so'rang.</span></div>
+    <div><i>3</i><b>O'sishni kuzating</b><span>Natijam bo'limida har kungi progressni ko'ring.</span></div>
+  </div>
+</section>
+
+<section id="reading" class="pane">
+  <h2>Reading</h2>
+  <div class="bar"><input id="r-topic" placeholder="Mavzu (masalan: climate, sleep, cities)"><button class="btn" id="r-new">AI yangi matn</button><button class="btn ghost" id="r-bank">Tayyor test</button></div>
+  <div id="r-box" class="split"></div>
+</section>
+
+<section id="listening" class="pane">
+  <h2>Listening</h2>
+  <div class="bar"><input id="l-topic" placeholder="Mavzu (masalan: university lecture, travel)"><select id="l-rate"><option value="0.8">Sekin</option><option value="0.95" selected>Oddiy</option><option value="1.1">Tez</option></select><button class="btn" id="l-new">AI yangi audio</button><button class="btn ghost" id="l-bank">Tayyor test</button></div>
+  <div id="l-box"></div>
+</section>
+
+<section id="speaking" class="pane">
+  <div class="s-head"><h2>Speaking</h2>
+    <select id="s-part"><option value="1">Part 1</option><option value="2">Part 2</option><option value="3">Part 3</option></select>
+    <button class="btn ghost" id="s-start">Boshlash</button>
+    <button class="btn ghost" id="s-end">Natija</button></div>
+  <div id="s-chat" class="chat"></div>
+  <div class="s-dock">
+    <input id="s-in" placeholder="Yozing yoki mikrofonni bosing">
+    <button class="orb" id="s-mic" aria-label="Mikrofon">Gapir</button>
+    <button class="btn" id="s-send">Yuborish</button>
+  </div>
+</section>
+
+<section id="writing" class="pane">
+  <h2>Writing Task 2</h2>
+  <div class="w-grid">
+    <div>
+      <p id="w-q" class="prompt"></p>
+      <textarea id="w-text" placeholder="Kamida 250 so'z yozing..."></textarea>
+      <button class="btn" id="w-send">Baho olish</button>
+    </div>
+    <aside class="w-side">
+      <div class="clock" id="w-time">40:00</div>
+      <div id="w-count">0 so'z</div>
+      <ul><li>Task Response</li><li>Coherence</li><li>Lexical Resource</li><li>Grammar</li></ul>
+      <button class="btn ghost" id="w-new">Yangi savol</button>
+    </aside>
+  </div>
+  <div id="w-out" class="out"></div>
+</section>
+
+<section id="mentor" class="pane">
+  <div class="m-grid">
+    <aside class="m-side">
+      <div id="av" class="avatar" data-emo="neutral">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Nova">
+          <defs><radialGradient id="fg" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#7fd0ff"/><stop offset=".6" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d3fd6"/></radialGradient></defs>
+          <circle cx="100" cy="100" r="92" fill="url(#fg)"/>
+          <g id="f-cheeks" fill="#ff7aa8" opacity="0"><ellipse cx="46" cy="124" rx="13" ry="8"/><ellipse cx="154" cy="124" rx="13" ry="8"/></g>
+          <g class="eyes">
+            <ellipse class="eye" cx="70" cy="90" rx="16" ry="19" fill="#fff"/><ellipse class="eye" cx="130" cy="90" rx="16" ry="19" fill="#fff"/>
+            <circle class="pupil" cx="70" cy="90" r="8" fill="#0b1330"/><circle class="pupil" cx="130" cy="90" r="8" fill="#0b1330"/>
+            <g id="f-hearts" fill="#ff4d8d" opacity="0"><path transform="translate(70 90)" d="M0 10 C-20 -4 -13 -20 0 -10 C13 -20 20 -4 0 10Z"/><path transform="translate(130 90)" d="M0 10 C-20 -4 -13 -20 0 -10 C13 -20 20 -4 0 10Z"/></g>
+          </g>
+          <g fill="none" stroke="#0b1330" stroke-width="6" stroke-linecap="round"><path id="f-bl" d="M52 68 Q70 62 88 68"/><path id="f-br" d="M112 68 Q130 62 148 68"/></g>
+          <path id="f-tear" d="M52 112 Q46 126 52 134 Q58 126 52 112Z" fill="#bfe6ff" opacity="0"/>
+          <path id="f-mouth" d="M75 140 Q100 150 125 140" fill="none" stroke="#0b1330" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="m-name"><b>Nova</b><span id="m-emo">Xotirjam</span></div>
+      <div class="seg" id="m-gender"><button data-g="f">Ayol ovozi</button><button data-g="m">Erkak ovozi</button></div>
+      <label class="hint"><input type="checkbox" id="m-voice"> Avto ovoz (kuniga ~10 marta bepul)</label>
+      <div id="m-note" class="hint"></div>
+    </aside>
+    <div class="m-main">
+      <div id="m-chat" class="chat"></div>
+      <div id="m-pic" class="hint"></div>
+      <div class="s-dock"><label class="btn ghost attach" title="Rasm yuborish">Rasm<input type="file" id="m-img" accept="image/*" hidden></label><input id="m-in" placeholder="Nova'ga yozing..."><button class="orb" id="m-mic" aria-label="Mikrofon">Gapir</button><button class="btn" id="m-send">Yuborish</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="vocab" class="pane">
+  <h2>Lug'at kartochkalari</h2>
+  <div class="bar"><input id="v-topic" placeholder="Mavzu (masalan: environment)"><button class="btn" id="v-new">AI bilan 10 ta so'z</button></div>
+  <div id="v-card" class="flash" tabindex="0"></div>
+  <div class="bar"><button class="btn ghost" id="v-prev">Oldingi</button><span id="v-pos"></span><button class="btn" id="v-next">Keyingi</button></div>
+</section>
+
+<section id="stats" class="pane">
+  <h2>Natijam</h2>
+  <div id="st-box"></div>
+</section>
+</main>
+
+<footer class="foot">
+  <div><b>Novix AI</b> · Smarter. Faster. Together.</div>
+  <p>Novix mustaqil o'quv platformasi. IELTS® British Council, IDP Education va Cambridge University Press &amp; Assessment kompaniyalarining savdo belgisi. Bu yerdagi mashqlar rasmiy IELTS materiallari emas.</p>
+</footer>
+<script src="bank.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
